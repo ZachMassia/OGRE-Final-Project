@@ -2,6 +2,7 @@
 
 #include <exception>
 #include <iostream>
+#include <utility>
 #include <string>
 #include <vector>
 #include <set>
@@ -15,3 +16,5 @@
 #include <OIS/OIS.h>
 #include <OGRE/Ogre.h>
 #include <OGRE/ExampleApplication.h>
+
+#include "Event.h"
