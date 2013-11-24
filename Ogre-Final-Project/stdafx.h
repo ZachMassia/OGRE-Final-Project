@@ -17,5 +17,6 @@
 #include <OGRE/Ogre.h>
 #include <OGRE/ExampleApplication.h>
 #include <SdkTrays.h>
+#include <SdkCameraMan.h>
 
 #include "Event.h"

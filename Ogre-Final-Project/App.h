@@ -70,6 +70,7 @@ protected:
 
 	// GUI
 	OgreBites::SdkTrayManager* trayMgr;
+	OgreBites::SdkCameraMan* cameraMan;
 
 	// Returned by frameStarted and frameRenderingQueued.
 	bool playing;

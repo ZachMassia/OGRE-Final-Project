@@ -6,6 +6,7 @@ App::App() :
 	keyboard(nullptr),
 	mouse(nullptr),
 	trayMgr(nullptr),
+	cameraMan(nullptr),
 	playing(true)
 {
 	// Seed the RNG for any future use.
@@ -25,6 +26,10 @@ App::~App()
 	if (trayMgr != nullptr) {
 		delete trayMgr;
 	}
+	// Shutdown SDK CameraManager
+	if (cameraMan != nullptr) {
+		delete cameraMan;
+	}
 }
 
 #pragma region Listener Overrides
@@ -43,6 +48,9 @@ void App::createFrameListener()
 	setupOIS();
 	createCallbacks();
 	setupSdkTrays();
+
+	cameraMan = new OgreBites::SdkCameraMan(mCamera);
+	cameraMan->setStyle(OgreBites::CS_MANUAL); // disable by default.
 
 	Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 }
@@ -89,6 +97,8 @@ void App::windowResized(RenderWindow *rw)
 #pragma region OIS::KeyListener
 bool App::keyPressed(const OIS::KeyEvent& evt)
 {
+	cameraMan->injectKeyDown(evt);
+
 	OnKeyPressed.RaiseEvent(new KeyEventArgs(&evt));
 
 	return true;
@@ -96,6 +106,8 @@ bool App::keyPressed(const OIS::KeyEvent& evt)
 
 bool App::keyReleased(const OIS::KeyEvent& evt)
 {
+	cameraMan->injectKeyUp(evt);
+
 	OnKeyReleased.RaiseEvent(new KeyEventArgs(&evt));
 
 	return true;
@@ -108,6 +120,8 @@ bool App::mouseMoved(const OIS::MouseEvent& evt)
 	if (trayMgr->injectMouseMove(evt)) {
 		return true;
 	}
+
+	cameraMan->injectMouseMove(evt);
 	
 	OnMouseMoved.RaiseEvent(new MouseEventArgs(&evt, nullptr));
 
@@ -120,6 +134,8 @@ bool App::mousePressed(const OIS::MouseEvent& evt, OIS::MouseButtonID id)
 		return true;
 	}
 
+	cameraMan->injectMouseDown(evt, id);
+
 	OnMousePressed.RaiseEvent(new MouseEventArgs(&evt, &id));
 
 	return true;
@@ -130,6 +146,8 @@ bool App::mouseReleased(const OIS::MouseEvent& evt, OIS::MouseButtonID id)
 	if (trayMgr->injectMouseUp(evt, id)) {
 		return true;
 	}
+
+	cameraMan->injectMouseUp(evt, id);
 
 	OnMouseReleased.RaiseEvent(new MouseEventArgs(&evt, &id));
 
@@ -250,6 +268,14 @@ void App::createCallbacks()
 				break;
 			}
 			break;
+		}
+	});
+
+	// SdkCameraMan needs to be notified of frameRenderingQueued 
+	// in Free Look mode.
+	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
+		if (cameraMan->getStyle() == OgreBites::CS_FREELOOK) {
+			cameraMan->frameRenderingQueued(*args->evt);
 		}
 	});
 }
