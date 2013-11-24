@@ -45,14 +45,9 @@ void App::createFrameListener()
 {
 	mRoot->addFrameListener(this);
 
-	setupOIS();
-	createCallbacks();
-	setupSdkTrays();
+	bootstrapSetup();
 
-	cameraMan = new OgreBites::SdkCameraMan(mCamera);
-	cameraMan->setStyle(OgreBites::CS_MANUAL); // disable by default.
-
-	Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
+	
 }
 #pragma endregion
 
@@ -193,6 +188,17 @@ void App::yesNoDialogClosed(const Ogre::DisplayString& question, bool yesHit)
 #pragma endregion
 #pragma endregion
 
+void App::bootstrapSetup()
+{
+	// Register App as WindowEventListener.
+	Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
+
+	setupOIS();
+	createCallbacks();
+	setupSdkTrays();
+	setupSdkCameraMan();
+}
+
 void App::setupOIS()
 {
 	using namespace OIS;
@@ -233,8 +239,13 @@ void App::setupSdkTrays()
 	trayMgr = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mouse, this);
 
 	trayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
+}
 
-	trayMgr->createButton(OgreBites::TL_TOPLEFT, "MyButton", "Click Me!");
+void App::setupSdkCameraMan()
+{
+	
+	cameraMan = new OgreBites::SdkCameraMan(mCamera);
+	cameraMan->setStyle(OgreBites::CS_MANUAL);
 }
 
 void App::createCallbacks()

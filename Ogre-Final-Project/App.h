@@ -120,7 +120,18 @@ protected:
 	virtual void createCallbacks();
 
 private:
+	// createFrameListener is the last step performed by ExampleApplications
+	// setup process. Any setup that App must do should be called in bootstrapSetup.
+	void bootstrapSetup();
+	
+	// Initializes OIS in buffered mode.
 	void setupOIS();
+
+	// Initializes the SdkTrayManager and loads the required fonts.
 	void setupSdkTrays();
+
+	// Init SdkCameraMan, but essentially disable it until required
+	// by setting the style to manual.
+	void setupSdkCameraMan();
 };
 
