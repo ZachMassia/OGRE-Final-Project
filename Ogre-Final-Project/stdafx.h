@@ -16,5 +16,6 @@
 #include <OIS/OIS.h>
 #include <OGRE/Ogre.h>
 #include <OGRE/ExampleApplication.h>
+#include <SdkTrays.h>
 
 #include "Event.h"
