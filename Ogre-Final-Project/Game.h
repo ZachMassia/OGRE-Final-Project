@@ -3,7 +3,6 @@
 #include "StdAfx.h"
 #include "App.h"
 
-
 class Game : public App
 {
 private:
@@ -13,6 +12,11 @@ public:
 	Game();
 	virtual ~Game();
 
+	// These methods must be implemented.
 	void createScene();
+	void createGui();
+
+protected:
+	void createCallbacks();
 };
 

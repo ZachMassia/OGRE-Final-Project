@@ -26,6 +26,18 @@ void Game::createScene()
 	animStates[1]->setLoop(true);
 	animStates[1]->setEnabled(true);
 
+	
+}
+
+void Game::createGui()
+{
+
+}
+
+void Game::createCallbacks()
+{
+	App::createCallbacks();
+
 	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
 		animStates[0]->addTime(args->evt->timeSinceLastFrame);
 		animStates[1]->addTime(args->evt->timeSinceLastFrame);

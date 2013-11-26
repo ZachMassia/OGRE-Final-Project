@@ -19,4 +19,13 @@
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <XInput.h>
+#pragma comment(lib, "XInput.lib")
+
+// ------------------------------------------------------------ //
+// Any files in this project must be included after this point. //
+// ------------------------------------------------------------ //
 #include "Event.h"
+#include "XboxController.h"

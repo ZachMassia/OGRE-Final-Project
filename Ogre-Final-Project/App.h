@@ -52,6 +52,15 @@ protected:
 		// Constructor
 		KeyEventArgs(const OIS::KeyEvent* _evt = nullptr) : evt(_evt) {}
 	};
+
+	// Included in the event we decide to use buffered joystick input.
+	struct JoyEventArgs
+	{
+		const OIS::JoyStickEvent* evt;
+
+		// Constructor
+		JoyEventArgs(const OIS::JoyStickEvent* _evt = nullptr) : evt(_evt) {}
+	};
 #pragma endregion
 	
 	// Event Objects.
@@ -65,12 +74,12 @@ protected:
 
 	// Input Objects.
 	OIS::InputManager* inputMgr;
-	OIS::Keyboard* keyboard;
-	OIS::Mouse* mouse;
+	OIS::Keyboard*     keyboard;
+	OIS::Mouse*        mouse;
 
 	// GUI
 	OgreBites::SdkTrayManager* trayMgr;
-	OgreBites::SdkCameraMan* cameraMan;
+	OgreBites::SdkCameraMan*   cameraMan;
 
 	// Returned by frameStarted and frameRenderingQueued.
 	bool playing;
@@ -118,6 +127,8 @@ protected:
 	// The implementing class should override this. It is still
 	// necessary to call the base version.
 	virtual void createCallbacks();
+	
+	virtual void createGui() = 0;
 
 private:
 	// createFrameListener is the last step performed by ExampleApplications

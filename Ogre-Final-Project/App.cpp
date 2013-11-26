@@ -219,7 +219,7 @@ void App::setupOIS()
 	// Create input objects.
 	keyboard = static_cast<Keyboard*>(inputMgr->createInputObject(OISKeyboard, true));
 	mouse = static_cast<Mouse*>(inputMgr->createInputObject(OISMouse, true));
-	
+
 	// Register for events.
 	mouse->setEventCallback(this);
 	keyboard->setEventCallback(this);
