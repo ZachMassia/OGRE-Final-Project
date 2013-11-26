@@ -25,8 +25,6 @@ void Game::createScene()
 	animStates[1] = ent->getAnimationState("IdleTop");
 	animStates[1]->setLoop(true);
 	animStates[1]->setEnabled(true);
-
-	
 }
 
 void Game::createGui()

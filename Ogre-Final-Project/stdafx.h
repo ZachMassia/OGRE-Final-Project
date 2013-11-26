@@ -28,4 +28,3 @@
 // Any files in this project must be included after this point. //
 // ------------------------------------------------------------ //
 #include "Event.h"
-#include "XboxController.h"

@@ -196,6 +196,7 @@ void App::bootstrapSetup()
 	setupOIS();
 	createCallbacks();
 	setupSdkTrays();
+	createGui();
 	setupSdkCameraMan();
 }
 
@@ -280,6 +281,11 @@ void App::createCallbacks()
 			}
 			break;
 		}
+	});
+
+	// This must be the first event for frame rendering queued.
+	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
+		xboxCtrl.update();
 	});
 
 	// SdkCameraMan needs to be notified of frameRenderingQueued 

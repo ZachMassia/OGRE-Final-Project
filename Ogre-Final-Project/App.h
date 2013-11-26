@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "XboxControllerManager.h"
 
 class App :
 	public ExampleApplication,
@@ -76,6 +77,8 @@ protected:
 	OIS::InputManager* inputMgr;
 	OIS::Keyboard*     keyboard;
 	OIS::Mouse*        mouse;
+
+	XboxControllerManager xboxCtrl;
 
 	// GUI
 	OgreBites::SdkTrayManager* trayMgr;
