@@ -17,6 +17,8 @@ public:
 		RIGHT_THUMB,
 		LEFT_SHOULDER,
 		RIGHT_SHOULDER,
+		DUMMY_VAL_A, // placeholder for 0x400
+		DUMMY_VAL_B, // placeholder for 0x800
 		A,
 		B,
 		X,
@@ -70,5 +72,10 @@ public:
 	void update();
 	void vibrate(float leftMotor = 0.0f, float rightMotor = 0.0f);
 	const GamePadState& getState() const;
+
+private:
+	void updateTriggers();
+	void updateButtons();
+	void updateSticks();
 };
 

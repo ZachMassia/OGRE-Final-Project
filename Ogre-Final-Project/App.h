@@ -130,6 +130,11 @@ protected:
 	// The implementing class should override this. It is still
 	// necessary to call the base version.
 	virtual void createCallbacks();
+
+	// Init SdkCameraMan, but essentially disable it until required
+	// by setting the style to manual.
+	// The base version must be call in the implementing class.
+	virtual void setupSdkCameraMan();
 	
 	virtual void createGui() = 0;
 
@@ -144,8 +149,6 @@ private:
 	// Initializes the SdkTrayManager and loads the required fonts.
 	void setupSdkTrays();
 
-	// Init SdkCameraMan, but essentially disable it until required
-	// by setting the style to manual.
-	void setupSdkCameraMan();
+	
 };
 

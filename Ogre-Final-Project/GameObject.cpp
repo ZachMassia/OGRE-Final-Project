@@ -30,7 +30,6 @@ GameObject::~GameObject()
 
 void GameObject::init(Ogre::SceneManager* sceneMgr)
 {
-	
 	if (name.length() > 0) {
 		entity = sceneMgr->createEntity(name, meshName);
 		node = parentNode->createChildSceneNode(name + "Node");

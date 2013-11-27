@@ -291,8 +291,6 @@ void App::createCallbacks()
 	// SdkCameraMan needs to be notified of frameRenderingQueued 
 	// in Free Look mode.
 	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
-		if (cameraMan->getStyle() == OgreBites::CS_FREELOOK) {
-			cameraMan->frameRenderingQueued(*args->evt);
-		}
+		cameraMan->frameRenderingQueued(*args->evt);
 	});
 }

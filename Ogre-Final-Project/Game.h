@@ -2,11 +2,13 @@
 
 #include "StdAfx.h"
 #include "App.h"
+#include "GameObject.h"
 
 class Game : public App
 {
 private:
-	Ogre::AnimationState* animStates[2];
+	GameObject* sinbad;
+	Ogre::AnimationState* animStates[4];
 
 public:
 	Game();
@@ -18,5 +20,6 @@ public:
 
 protected:
 	void createCallbacks();
+	void setupSdkCameraMan();
 };
 

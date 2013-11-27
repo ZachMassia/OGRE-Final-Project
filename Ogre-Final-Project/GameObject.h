@@ -30,7 +30,7 @@ protected:
 	// The object's entity.
 	Ogre::Entity* entity;
 
-protected:
+public:
 	GameObject(
 		const std::string& _name,
 		const std::string& _meshName,
@@ -39,6 +39,9 @@ protected:
 	);
 	virtual ~GameObject();
 
+	virtual void update(const Ogre::FrameEvent* evt);
+
+protected:
 	// Init creates the entity using the mesh name, and optionally,
 	// the node name.
 	// 
@@ -46,10 +49,8 @@ protected:
 	// the node passed to the constructor.
 	virtual void init(Ogre::SceneManager* sceneMgr);
 
-public:
-	virtual void update(const Ogre::FrameEvent* evt);
-
 #pragma region Getters / Setters
+public:
 	// The current state of this object.
 	const bool getAlive() const;
 	// Set the current state of this object.
