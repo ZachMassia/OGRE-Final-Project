@@ -97,7 +97,7 @@ void Game::createCallbacks()
 
 		sinbad->getNode()->rotate(src.getRotationTo(dir));
 
-
+//Dylan wuz here
 
 		sinbad->update(args->evt);
 	});
