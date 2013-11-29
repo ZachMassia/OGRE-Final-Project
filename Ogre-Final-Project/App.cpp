@@ -288,9 +288,9 @@ void App::createCallbacks()
 		xboxCtrl.update();
 	});
 
-	// SdkCameraMan needs to be notified of frameRenderingQueued 
-	// in Free Look mode.
+	// SdkCameraMan and SdkTrayManager need to be updated.
 	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
 		cameraMan->frameRenderingQueued(*args->evt);
+		trayMgr->frameRenderingQueued(*args->evt);
 	});
 }

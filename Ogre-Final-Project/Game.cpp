@@ -5,7 +5,6 @@ Game::Game() : sinbad(nullptr)
 {
 }
 
-
 Game::~Game()
 {
 	if (sinbad) {
@@ -32,11 +31,6 @@ void Game::createScene()
 	};
 	setupAnimPair(0, "Idle");
 	setupAnimPair(2, "Run");
-}
-
-void Game::createGui()
-{
-
 }
 
 void Game::createCallbacks()
@@ -97,9 +91,9 @@ void Game::createCallbacks()
 
 		sinbad->getNode()->rotate(src.getRotationTo(dir));
 
-
-
 		sinbad->update(args->evt);
+
+		cameraMan->setYawPitchDist(Ogre::Degree(rightStick.x), Ogre::Degree(rightStick.y), 45.0f);
 	});
 }
 
@@ -110,4 +104,9 @@ void Game::setupSdkCameraMan()
 	cameraMan->setStyle(OgreBites::CS_ORBIT);
 	cameraMan->setTarget(sinbad->getNode());
 	cameraMan->setYawPitchDist(Ogre::Degree(0.0f), Ogre::Degree(0.0f), 45.0f);
+}
+
+void Game::createGui()
+{
+	
 }

@@ -16,10 +16,11 @@ public:
 
 	// These methods must be implemented.
 	void createScene();
-	void createGui();
+	
 
 protected:
 	void createCallbacks();
 	void setupSdkCameraMan();
+	void createGui();
 };
 
