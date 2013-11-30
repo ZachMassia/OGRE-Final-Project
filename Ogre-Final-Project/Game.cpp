@@ -39,7 +39,9 @@ void Game::createCallbacks()
 
 	// Quit on Xbox remote BACK.
 	OnFrameRenderingQueued.Subscribe([&](const FrameEventArgs* args) {
-		playing = !xboxCtrl.p1.getState().buttons[XboxController::BACK];
+		if (xboxCtrl.p1.isConnected()) {
+			playing = !xboxCtrl.p1.getState().buttons[XboxController::BACK];
+		}
 	});
 
 #pragma region Helpers

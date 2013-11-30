@@ -65,8 +65,8 @@ bool App::frameStarted(const Ogre::FrameEvent& evt)
 
 bool App::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
-	//keyboard->capture();
-	//mouse->capture();
+	keyboard->capture();
+	mouse->capture();
 
 	// Notify event subscribers.
 	OnFrameRenderingQueued.RaiseEvent(new FrameEventArgs(keyboard, mouse, &evt));
