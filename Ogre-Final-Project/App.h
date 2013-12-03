@@ -54,14 +54,6 @@ protected:
 		KeyEventArgs(const OIS::KeyEvent* _evt = nullptr) : evt(_evt) {}
 	};
 
-	// Included in the event we decide to use buffered joystick input.
-	struct JoyEventArgs
-	{
-		const OIS::JoyStickEvent* evt;
-
-		// Constructor
-		JoyEventArgs(const OIS::JoyStickEvent* _evt = nullptr) : evt(_evt) {}
-	};
 #pragma endregion
 	
 	// Event Objects.
