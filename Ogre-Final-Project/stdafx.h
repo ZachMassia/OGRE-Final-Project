@@ -24,6 +24,12 @@
 #include <XInput.h>
 #pragma comment(lib, "XInput.lib")
 
+
+// Includes for the Artifex Loader
+#include <CustomTypes.h>
+#include <StaticUtils.h>
+#include <ArtifexLoader.h>
+
 // ------------------------------------------------------------ //
 // Any files in this project must be included after this point. //
 // ------------------------------------------------------------ //

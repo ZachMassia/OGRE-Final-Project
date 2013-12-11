@@ -11,7 +11,7 @@ class App :
 	public OIS::MouseListener,
 	public Ogre::WindowEventListener
 {
-protected:
+public:
 #pragma region Event Args
 	// I chose to wrap all the needed objects into a single
 	// struct to avoid dealing with variadic templates. 
@@ -55,7 +55,8 @@ protected:
 	};
 
 #pragma endregion
-	
+
+protected:
 	// Event Objects.
 	Event<const FrameEventArgs*> OnFrameStarted;
 	Event<const FrameEventArgs*> OnFrameRenderingQueued;
@@ -75,6 +76,12 @@ protected:
 	// GUI
 	OgreBites::SdkTrayManager* trayMgr;
 	OgreBites::SdkCameraMan*   cameraMan;
+
+	// The loader is owned by App. The implementing class must
+	// create it if needed.
+	//
+	// App will handle cleanup of the loader.
+	ArtifexLoader* artifexLoader;
 
 	// Returned by frameStarted and frameRenderingQueued.
 	bool playing;

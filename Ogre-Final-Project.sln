@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ogre-Final-Project", "Ogre-Final-Project\Ogre-Final-Project.vcxproj", "{8B609A9B-6B9D-4E9A-8A85-62BEA3CC6F5E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArtifexLoader", "Ogre-Final-Project\extern\artifex_loader\ArtifexLoader\ArtifexLoader.vcxproj", "{94A9CB1B-440C-4796-9E78-AA41C0841601}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pagedgeometry", "Ogre-Final-Project\extern\pagedgeometry\pagedgeometry_vc8.vcxproj", "{10BD1783-203F-4D55-883F-3C348E9044A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +19,14 @@ Global
 		{8B609A9B-6B9D-4E9A-8A85-62BEA3CC6F5E}.Debug|Win32.Build.0 = Debug|Win32
 		{8B609A9B-6B9D-4E9A-8A85-62BEA3CC6F5E}.Release|Win32.ActiveCfg = Release|Win32
 		{8B609A9B-6B9D-4E9A-8A85-62BEA3CC6F5E}.Release|Win32.Build.0 = Release|Win32
+		{94A9CB1B-440C-4796-9E78-AA41C0841601}.Debug|Win32.ActiveCfg = Debug|Win32
+		{94A9CB1B-440C-4796-9E78-AA41C0841601}.Debug|Win32.Build.0 = Debug|Win32
+		{94A9CB1B-440C-4796-9E78-AA41C0841601}.Release|Win32.ActiveCfg = Release|Win32
+		{94A9CB1B-440C-4796-9E78-AA41C0841601}.Release|Win32.Build.0 = Release|Win32
+		{10BD1783-203F-4D55-883F-3C348E9044A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10BD1783-203F-4D55-883F-3C348E9044A6}.Debug|Win32.Build.0 = Debug|Win32
+		{10BD1783-203F-4D55-883F-3C348E9044A6}.Release|Win32.ActiveCfg = Release|Win32
+		{10BD1783-203F-4D55-883F-3C348E9044A6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

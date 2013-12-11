@@ -7,6 +7,7 @@ App::App() :
 	mouse(nullptr),
 	trayMgr(nullptr),
 	cameraMan(nullptr),
+	artifexLoader(nullptr),
 	playing(true)
 {
 	// Seed the RNG for any future use.
@@ -29,6 +30,10 @@ App::~App()
 	// Shutdown SDK CameraManager
 	if (cameraMan != nullptr) {
 		delete cameraMan;
+	}
+
+	if (artifexLoader != nullptr) {
+		delete artifexLoader;
 	}
 }
 
